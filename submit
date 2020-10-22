@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "zipping project, excluding dependencies and .git..."
+zip -r project.zip . -x *.git* backend/.venv/\* frontend/node_modules/\*
+
+echo "done! see project.zip"
