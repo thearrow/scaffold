@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
-import "./App.css";
+import styles from "./App.module.css";
 import logo from "./logo.svg";
 
 function App() {
@@ -10,9 +10,9 @@ function App() {
   >("message", () => fetch("/api").then((res) => res.json()));
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className={styles.app}>
+      <header className={styles.header}>
+        <img src={logo} className={styles.logo} alt="logo" />
         <p>
           {isLoading ? "Loading..." : isError ? error?.message : data?.message}
         </p>
