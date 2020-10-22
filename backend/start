@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ ! -d ".venv" ]; then
+    echo "virtualenv for project not found, creating..."
+    virtualenv .venv 
+fi
+
+echo "activating virtualenv..."
+source .venv/bin/activate
+
+echo "installing dependencies..."
+pip install -r requirements.txt
+
+echo "starting backend..."
+uvicorn api:app --reload
