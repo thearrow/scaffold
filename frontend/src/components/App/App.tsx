@@ -1,24 +1,29 @@
-import React from "react";
-import { useQuery } from "react-query";
-import styles from "./App.module.css";
-import logo from "./logo.svg";
+import { Message } from "components/Message/Message";
+import React, { FunctionComponent } from "react";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
-function App() {
-  const { isLoading, isError, error, data } = useQuery<
-    { message: string },
-    Error
-  >("message", () => fetch("/api").then((res) => res.json()));
-
+const App: FunctionComponent = () => {
   return (
-    <div className={styles.app}>
-      <header className={styles.header}>
-        <img src={logo} className={styles.logo} alt="logo" />
-        <p>
-          {isLoading ? "Loading..." : isError ? error?.message : data?.message}
-        </p>
-      </header>
-    </div>
+    <Router>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/items">Items</Link>
+        </li>
+      </ul>
+
+      <Switch>
+        <Route exact path="/">
+          <Message />
+        </Route>
+        <Route path="/items">
+          <p>Items</p>
+        </Route>
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
