@@ -1,3 +1,4 @@
+import { Items } from "components/Items/Items";
 import { Message } from "components/Message/Message";
 import React, { FunctionComponent } from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
@@ -19,7 +20,7 @@ const App: FunctionComponent = () => {
           <Message />
         </Route>
         <Route path="/items">
-          <p>Items</p>
+          <Items />
         </Route>
       </Switch>
     </Router>
