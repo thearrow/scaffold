@@ -12,6 +12,7 @@ logger.info(f"connecting to postgres at: {PG_URI}")
 
 engine = create_engine(PG_URI)
 if not database_exists(engine.url):
+    logger.info("creating database since it did not exist...")
     create_database(engine.url)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()

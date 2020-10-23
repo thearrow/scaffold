@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import BaseModel
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
@@ -33,6 +35,11 @@ class SubItem(Base):
 class ItemAPICreate(BaseModel):
     title: str
     description: str
+
+
+class ItemAPIUpdate(BaseModel):
+    title: Optional[str] = None
+    description: Optional[str] = None
 
 
 class ItemAPI(ItemAPICreate):
