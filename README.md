@@ -12,6 +12,8 @@ Have the following tools installed:
 
 ## Backend
 
+Ensure `backend/.env` contains the proper URI for a PostgreSQL connection.
+
 ```sh
 cd backend && ./start
 ```
@@ -20,4 +22,12 @@ cd backend && ./start
 
 ```sh
 cd frontend && ./start
+```
+
+## Submit
+
+(Zip the project, excluding dependencies and .git folder)
+
+```sh
+./submit
 ```
