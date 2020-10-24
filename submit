@@ -1,6 +1,11 @@
 #!/bin/sh
 
 echo "zipping project, excluding dependencies and .git..."
-zip -r project.zip . -x *.git* backend/.venv/\* frontend/node_modules/\*
+zip -r project.zip . -x \
+    *.git* \
+    backend/.venv/\* \
+    frontend/node_modules/\* \
+    \*__pycache__/\* \
+    \*.DS_Store
 
 echo "done! see project.zip"
