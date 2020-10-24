@@ -2,7 +2,7 @@
 
 echo "zipping project, excluding dependencies and .git..."
 zip -r project.zip . -x \
-    *.git* \
+    .git/\* \
     backend/.venv/\* \
     frontend/node_modules/\* \
     \*__pycache__/\* \
